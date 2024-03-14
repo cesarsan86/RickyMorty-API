@@ -1,3 +1,10 @@
 /* 
     General Styles
 */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://img.freepik.com/fotos-premium/cielo-azul-oscuro-estrellado_118086-2433.jpg');
+    background-size: cover;
+    background-position: center;
+  }

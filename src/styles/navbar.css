@@ -1,0 +1,33 @@
+nav{
+    background-color: rgb(240, 238, 238);
+    margin-bottom: 30px;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.imagen-logo{
+    width: 100px;
+    height: auto;
+}
+
+.dropdown-item{
+    display: flex;
+    justify-content: space-between;
+    user-select: none;
+    cursor: auto;   
+}
+
+.borrar-favorito{
+    cursor: pointer;
+}
+
+.favoritos-counter{
+    background-color: rgba(128, 128, 128, 0.59);
+    padding: 3px ;
+    margin: 0 6px;
+    border-radius: 3px;
+}
