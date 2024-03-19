@@ -18,12 +18,19 @@ const Characters = () => {
             {store.characters && store.characters.length > 0 ? (
                 store.characters.map((value, index) => (
                     <Card
+                        image={value.image}
                         nombre={value.name}
+                        status={value.status}
+                        species={value.species}
+                        gender={value.gender}
                         key={index}
                         id={value.uid}
                         type={"characters"}
                         addFavoritos={() => actions.addFavoritos(value)}
                         isFavorito={actions.verificarFavorito(value)}
+                        
+             
+
                     />
                 ))
             ) : (

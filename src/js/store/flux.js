@@ -4,8 +4,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favoritos: [],
 			elementos: [],
 			characters: [],
-			planets: [],
-			vehicles:[]
+			location: [],
+			episode:[]
 		},
 		actions: {
 			addFavoritos: (elemento) => {
@@ -32,21 +32,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 				return false
 			},
 			addCharacters () {
-				fetch("https://swapi.tech/api/people")
+				fetch("https://rickandmortyapi.com/api/character")
 			   .then(response => response.json())
 			   .then(data => setStore({ characters: data.results }))
 			   .catch(error => console.log(error));
 		   },
-			addPlanets () {
-				fetch("https://swapi.tech/api/planets")
+			addLocation () {
+				fetch("https://rickandmortyapi.com/api/location")
 			   .then(response => response.json())
-			   .then(data => setStore({ planets: data.results }))
+			   .then(data => setStore({ location: data.results }))
 			   .catch(error => console.log(error));
 		   },
-		   addVehicles () {
-				fetch("https://swapi.tech/api/vehicles")
+		   addEpisodes () {
+				fetch("https://rickandmortyapi.com/api/episode")
 				.then(response => response.json())
-				.then(data => setStore({ vehicles: data.results }))
+				.then(data => setStore({ episode: data.results }))
 				.catch(error => console.log(error));
 	   		},
 			

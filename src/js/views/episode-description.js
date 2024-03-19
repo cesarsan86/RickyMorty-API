@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import "../../styles/description.css";
 
-const PlanetDescription = () => {
+const EpisodeDescription = () => {
 
     const [propiedades, setPropiedades] = useState({});
     const [descripcion, setDescripcion] = useState("");
@@ -10,13 +10,12 @@ const PlanetDescription = () => {
     const { id } = useParams();
 
     async function solicitarData() {
-        const respose = await fetch("https://swapi.tech/api/planets/" + id);
+        const respose = await fetch("https://rickandmortyapi.com/api/episode/" + id);
         const data = await respose.json();
-        const result = data.result.properties;
-        const result2 = data.result.description;
+        const result = data;
+        // const result2 = data.result.description;
         setPropiedades(result);
-        setDescripcion(result2);
-        console.log(data.result)
+        // setDescripcion(result2);
     }
 
     useEffect(() => {
@@ -24,59 +23,65 @@ const PlanetDescription = () => {
     }, [])
 
     return (
-        <div className="contenedor-principal-planets">
+        <div className="contenedor-principal-episodes">
             <div className="d-flex flex-column align-items-center container contenedor-descripcion">
-                <img src="https://www.servithermic.cl/images/400X200.gif" className="card-img-top" alt="..."/>
+                
+                
                 <div className="text-center">
                     <h2 className="text-warning">{propiedades.name}</h2>
                     <p>{descripcion}</p>
                 </div>
             </div>
             <div className="container contenedor-propiedades text-center">
-                <div className="row"> 
+                <div className="row">
 
-                    <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">                   
+                    <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">
                         <div className="text">
                             <p>Name</p>
                             <p>{propiedades.name}</p>
                         </div>
                     </div>
+                    <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">
+                        <div className="text">
+                            <p>Air date</p>
+                            <p>{propiedades.air_date}</p>
+                        </div>
+                    </div>
                     <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">    
                         <div className="text">
-                            <p>Climate</p>
-                            <p>{propiedades.climate}</p>
+                            <p>Episode</p>
+                            <p>{propiedades.episode}</p>
                         </div>
-                    </div> 
+                    </div>
+                    <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">    
+                        <div className="text">
+                            <p>Characters</p>
+                            <p>{propiedades.characters}</p>
+                        </div>
+                    </div>
                     <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">   
                         <div className="text">
-                            <p>Population</p>
-                            <p>{propiedades.population}</p>
+                            <p>Image</p>
+                            <img src={propiedades.image} alt = "Episode"/>
                         </div>
-                    </div>
+                    </div>  
+                    {/* <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">    
+                        <div className="text">
+                            <p>url</p>
+                            <img src={propiedades.url} alt = "Episodes"/>
+                        </div>
+                    </div> */}
                     <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">    
                         <div className="text">
-                            <p>Orbital Period</p>
-                            <p>{propiedades.orbital_period}</p>
-                        </div>
-                    </div>
-                    <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">    
-                        <div className="text">
-                            <p>Rotation Period</p>
-                            <p>{propiedades.rotation_period}</p>
-                        </div>
-                    </div>
-                    <div className="col-sm-12 col-md-4 col-lg-2 ps-4 pt-4">    
-                        <div className="text">
-                            <p>Diameter</p>
-                            <p>{propiedades.diameter}</p>
+                            <p>Created</p>
+                            <p>{propiedades.created}</p>
                         </div>
                     </div>    
                 </div>    
-            </div>
-
-        </div>    
+            </div>        
+        </div>
         
     )
 }
 
-export default PlanetDescription;
+export default EpisodeDescription;

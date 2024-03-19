@@ -19,14 +19,30 @@ const Card = (props) => {
 
 	return (
 		<div className="card" style={{ width: "18rem" }}>
-			<img src="https://www.servithermic.cl/images/400X200.gif" className="card-img-top" alt="..."/>
+		
+                <img src={props.image} className="card-img-top" />
+           
 
 			
 		
 			<div className="card-body">
 				<h5 className="card-title">{props.nombre}</h5>
+				<div>{props.status}</div>
+				<div>{props.species}</div>
+				<div>{props.gender}</div>
+				<div>{props.air_date}</div>
+				<div>{props.episode}</div>
+				<div>{props.created}</div>
+				<div>{props.dimension}</div>
+				
+				
+				
+			
+
+
+
 				<div className="d-flex justify-content-between">
-					<Link to={`${props.type}/${props.id}`} className="btn btn-outline-primary">Learn more!</Link>
+					{/* <Link to={`${props.type}/${props.id}`} className="btn btn-outline-primary">Learn more!</Link> */}
 					<button type="button" className="btn btn-outline-warning fa fa-2x fa-heart  mt-1 me-1" onClick={agregarFavoritos}>
 						{verificarFav ? (
 							<i className="fa fa-2x fa-heart mt-1 me-1"></i>

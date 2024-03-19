@@ -1,36 +1,40 @@
 import React, { useEffect, useContext } from "react";
 import Card from "../views/card.js";
 import { Context } from "../store/appContext.js";
+
 import "../../styles/cardContainer.css";
 
-const Planets = () => {
+const Location = () => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
-        // Llama a la acción fetchCharacters solo si no hay personajes cargados
-        if (store.vehicles.length === 0) {
-            actions.addPlanets();
+        // Llama a la acción fetchCharacters solo si no hay ubicaciones cargadas
+        if (store.location.length === 0) {
+            actions.addLocation();
         }
-    }, [actions, store.vehicles]);
+    }, [actions, store.location]);
 
     return (
         <div className="contenedor-cards">
-            {store.planets && store.planets.length > 0 ? (
-                store.planets.map((value, index) => (
+            {store.location && store.location.length > 0 ? (
+                store.location.map((value, index) => (
                     <Card
+                        
                         nombre={value.name}
+                        dimension={value.dimension}
+                        created={value.created}
                         key={index}
                         id={value.uid}
-                        type={"planets"}
+                        type={"location"}
                         addFavoritos={() => actions.addFavoritos(value)}
                         isFavorito={actions.verificarFavorito(value)}
                     />
                 ))
             ) : (
-                <p>Cargando planets...</p>
+                <p>Cargando Location...</p>
             )}
         </div>
     );
 };
 
-export default Planets;
+export default Location; 

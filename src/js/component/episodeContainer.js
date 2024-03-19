@@ -3,34 +3,39 @@ import Card from "../views/card.js";
 import { Context } from "../store/appContext.js";
 import "../../styles/cardContainer.css";
 
-const Vehicles = () => {
+const Episode = () => {
     const { store, actions } = useContext(Context);
 
     useEffect(() => {
         // Llama a la acción fetchCharacters solo si no hay personajes cargados
-        if (store.vehicles.length === 0) {
-            actions.addVehicles();
+        if (store.episode.length === 0) {
+            actions.addEpisodes();
         }
-    }, [actions, store.vehicles]);
+    }, [actions, store.episode]);
 
     return (
         <div className="contenedor-cards">
-            {store.planets && store.vehicles.length > 0 ? (
-                store.vehicles.map((value, index) => (
+            {store.episode && store.episode.length > 0 ? (
+                store.episode.map((value, index) => (
                     <Card
+                        
+                        
                         nombre={value.name}
+                        air_date={value.air_date}
+                        episode={value.episode}
+                        created={value.created}
                         key={index}
                         id={value.uid}
-                        type={"vehicles"}
+                        type={"episode"}
                         addFavoritos={() => actions.addFavoritos(value)}
                         isFavorito={actions.verificarFavorito(value)}
                     />
                 ))
             ) : (
-                <p>Cargando vehiculos...</p>
+                <p>Cargando Episodes...</p>
             )}
         </div>
     );
 };
 
-export default Vehicles;
+export default Episode;

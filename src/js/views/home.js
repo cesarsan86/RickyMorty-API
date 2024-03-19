@@ -1,8 +1,8 @@
 import React from "react";
 import Card from "./card.js";
 import Characters from "../component/charactersContainer.js";
-import Planets from "../component/planetsContainer.js";
-import Vehicles from "../component/vehiclesContainer.js";
+import Location from "../component/locationContainer.js";
+import Episode from "../component/episodeContainer.js";
 import "../../styles/home.css";
 
 const Home = () => {
@@ -16,13 +16,13 @@ const Home = () => {
 			</section>
 
 			<section>
-				<h1>Planets</h1>
-				<Planets />
+				<h1>Location</h1>
+				<Location />
 			</section>
 
 			<section>
-				<h1>Vehicles</h1>
-				<Vehicles />
+				<h1>Episode</h1>
+				<Episode />
 			</section>
 
 		</main >

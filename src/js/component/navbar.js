@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/navbar.css";
 import { Context } from "../store/appContext.js";
+import rick from "../../img/rick.png";
 
 const Navbar = () => {
 
@@ -18,7 +19,7 @@ const Navbar = () => {
 	return (
 		<nav>
 			<header className="container">
-				<Link to="/"><img className="imagen-logo" src="https://download.logo.wine/logo/Star_Wars/Star_Wars-Logo.wine.png" /></Link>
+				<Link to="/"><img className="imagen-logo" src={rick} /></Link>
 				<div className="dropdown">
 					<button className="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"data-bs-auto-close="outside" aria-expanded="false">
 						<span>Favorites</span>
